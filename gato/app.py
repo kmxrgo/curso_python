@@ -12,18 +12,11 @@ def main():
     while corriendo:
         dsimbolos = {x:x for x in numeros}
         g = tablero.juego(dsimbolos)
-        if g is not None:
-            print(f'El ganador es {g}')
-            if g == 'X':
-                X["G"] += 1
-            elif g == 'O':
-                O["G"] += 1
-        else:
-            print('Empate')
-            X["E"] += 1
-            O["E"] += 1
-       
+        tablero.actualiza_score(score,g)
+        tablero.despliega_tablero(score)
+        seguir = input('Quieres seguir? (s/n): ')
+        if seguir.lower() == 'n':
+            corriendo = False
  
 if __name__ == '__main__':
     main()
-    
